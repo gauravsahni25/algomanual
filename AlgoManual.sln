@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoManual", "AlgoManual\AlgoManual.csproj", "{719CF5CD-E8CD-4023-A6BE-5274DDED6DCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoManual.Test", "AlgoManual.Test\AlgoManual.Test.csproj", "{52F839F9-39AC-4337-8E3B-80B2E363F898}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{719CF5CD-E8CD-4023-A6BE-5274DDED6DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{719CF5CD-E8CD-4023-A6BE-5274DDED6DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{719CF5CD-E8CD-4023-A6BE-5274DDED6DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{719CF5CD-E8CD-4023-A6BE-5274DDED6DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52F839F9-39AC-4337-8E3B-80B2E363F898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52F839F9-39AC-4337-8E3B-80B2E363F898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52F839F9-39AC-4337-8E3B-80B2E363F898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52F839F9-39AC-4337-8E3B-80B2E363F898}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F7B1B94-BD26-4B71-8317-CE69897D56C6}
+	EndGlobalSection
+EndGlobal
