@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using AlgoManual.Chapter3;
 using NUnit.Framework;
 
 namespace AlgoManual.Test.Chapter3
@@ -5,9 +7,10 @@ namespace AlgoManual.Test.Chapter3
     public class Chapter3Tests
     {
         [Test]
-        public void Test1()
+        public void BstBuilder_BuildsCorrectly()
         {
-            Assert.Pass();
+            var tree = BstBuilder.BuildBstFromArray(new List<int>() {50, 34, 73, 72, 72, 81});
+            tree.InOrderTraversal(tree);
         }
     }
 }
