@@ -93,5 +93,21 @@ namespace AlgoManual.Test.Chapter5
 
             Assert.IsTrue(graph.NVertices == 5);
         }
+
+        [Test]
+        public void MyLinkedList_TakesItems_Correctly()
+        {
+            MyLinkedList<int> linkedList = new MyLinkedList<int>();
+            var data = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            foreach (var item in data)
+            {
+                linkedList.Add(item);
+            }
+
+            foreach (var item in linkedList)
+            {
+                Console.WriteLine(item);
+            }
+        }
     }
 }
