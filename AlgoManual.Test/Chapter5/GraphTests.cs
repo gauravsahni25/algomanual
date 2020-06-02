@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace AlgoManual.Test.Chapter5
 {
     [TestFixture]
-    public class Tests
+    public class GraphTests
     {
         private List<Point> points;
         Graph graph = new Graph(5);
@@ -29,7 +29,6 @@ namespace AlgoManual.Test.Chapter5
         public void PrintGraph()
         {
             graph.ReadGraph(points, false);
-            graph.NVertices = 5;
             graph.PrintGraph();
             Console.WriteLine("-- End of Test--");
         }

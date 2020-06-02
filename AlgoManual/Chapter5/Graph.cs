@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace AlgoManual.Chapter5
 {
-    [DebuggerDisplay("Edge: ({XValue} - {YValue})")]
+    [DebuggerDisplay("Edge: ({XThatComesFromEdgeIndexHereForDebugging} - {YValue})")]
     public class EdgeNode
     {
         public int YValue { get; set; }
         public int? Weight { get; set; }
         public EdgeNode Next { get; set; }
-        public int XValue { get; set; }
+        public int XThatComesFromEdgeIndexHereForDebugging { get; set; }
     }
     
 
@@ -26,14 +27,14 @@ namespace AlgoManual.Chapter5
             MaxV = MAXV;
         }
 
-        public int MaxV { get; set; }
+        public int MaxV { get; }
         // Array of Linked Lists, denotes adj. list of vertex at a given index.
         public EdgeNode[] Edges { get; set; }
         // Array of degree, denotes degree of vertex at a given index
-        public int[] Degree { get; set; } 
-        public int NVertices { get; set; }
+        public int[] Degree { get; set; }
+        public int NVertices => Edges.Length; // this works because we create a new Adj List for a new Vertex
         public int NEdges { get; set; }
-        public bool Directed { get; set; }
+        public bool IsDirected { get; set; }
 
         public void ReadGraph(List<Point> edges, bool directed)
         {
@@ -47,9 +48,8 @@ namespace AlgoManual.Chapter5
         }
         private void InitializeGraph(bool directed)
         {
-            NVertices = 0;
             NEdges = 0;
-            Directed = directed;
+            IsDirected = directed;
             for (int i = 0; i < MaxV; i++)
             {
                 Degree[i] = 0;
@@ -75,7 +75,7 @@ namespace AlgoManual.Chapter5
                 YValue =y,
                 Weight = null,
 
-                XValue= x
+                XThatComesFromEdgeIndexHereForDebugging= x
             };
 
            // Put the new node at the HEAD of the Adjacency Linked list
@@ -89,10 +89,6 @@ namespace AlgoManual.Chapter5
             {
                 // The same edge has to appear in Y's Adjacency List | Thus graph is Undirected
                 InsertEdge(y, x, true);
-            }
-            else
-            {
-                
             }
         }
 
