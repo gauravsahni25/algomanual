@@ -56,7 +56,7 @@ namespace AlgoManual.Chapter5
                     int connectedVertex = edgeAdjacencyList.YValue;
                     if (Processed[connectedVertex] == false || Graph.IsDirected)
                     {
-                        // If connectedVertex is not Processes, Process the Edge
+                        // If connectedVertex is not Processed, Process the Edge
                         ProcessEdge(vertex, connectedVertex);
                     }
 
@@ -73,21 +73,7 @@ namespace AlgoManual.Chapter5
             }
         }
 
-        public void FindPathWith_PrintWithStrategyA(int start, int end)
-        {
-            // this updates the Parents array
-            PerformSearch(start);
-            if (start == end || end == -1)
-            {
-               Console.WriteLine(start); 
-            }
-            else
-            {
-                FindPathWith_PrintWithStrategyA(start, Parent[end]);
-                Console.WriteLine(end);
-            }
-        }
-        public List<int> FindPathWith_PrintWithStrategyB(int start, int end)
+        public List<int> FindPathWith_PrintWithStrategyA(int start, int end)
         {
             
             PerformSearch(start);
@@ -109,6 +95,21 @@ namespace AlgoManual.Chapter5
             }
 
             return path;
+        }
+
+        public void FindPathWith_PrintWithStrategyB(int start, int end)
+        {
+            // this updates the Parents array
+            PerformSearch(start);
+            if (start == end || end == -1)
+            {
+               Console.WriteLine(start); 
+            }
+            else
+            {
+                FindPathWith_PrintWithStrategyB(start, Parent[end]);
+                Console.WriteLine(end);
+            }
         }
 
         private void Process_Vertex_Late(int vertex)

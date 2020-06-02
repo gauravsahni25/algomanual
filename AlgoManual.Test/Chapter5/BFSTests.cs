@@ -41,7 +41,7 @@ namespace AlgoManual.Test.Chapter5
         public void Shortest_Path_Test()
         {
             BreadthFirstSearch search = new BreadthFirstSearch(graph);
-            var path = search.FindPathWith_PrintWithStrategyB(1, 4);
+            var path = search.FindPathWith_PrintWithStrategyA(1, 4);
             var sequenceEqual = path.SequenceEqual(new List<int>() { 1, 5, 4 });
             Assert.IsTrue(sequenceEqual);
         }
