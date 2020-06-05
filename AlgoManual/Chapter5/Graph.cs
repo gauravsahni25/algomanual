@@ -32,7 +32,7 @@ namespace AlgoManual.Chapter5
         public EdgeNode[] Edges { get; set; }
         // Array of degree, denotes degree of vertex at a given index
         public int[] Degree { get; set; }
-        public int NVertices => Edges.Length; // this works because we create a new Adj List for a new Vertex
+        public int NVertices => MaxV; // this works because we do not create a random sized list
         public int NEdges { get; set; }
         public bool IsDirected { get; set; }
 
@@ -46,6 +46,7 @@ namespace AlgoManual.Chapter5
                 InsertEdge(edges[i].X, edges[i].Y, directed);
             }
         }
+
         private void InitializeGraph(bool directed)
         {
             NEdges = 0;
