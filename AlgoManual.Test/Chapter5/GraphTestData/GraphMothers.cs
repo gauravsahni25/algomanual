@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
 using AlgoManual.Chapter5;
 
 namespace AlgoManual.Test.Chapter5.GraphTestData

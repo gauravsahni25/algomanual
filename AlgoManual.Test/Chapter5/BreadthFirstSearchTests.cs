@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using AlgoManual.Chapter5;
 using AlgoManual.Chapter5.BreadthFirstSearch;
 using AlgoManual.Test.Chapter5.GraphTestData;
 using NUnit.Framework;
