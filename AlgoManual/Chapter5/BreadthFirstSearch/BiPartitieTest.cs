@@ -11,20 +11,20 @@ namespace AlgoManual.Chapter5.BreadthFirstSearch
         }
         public Color[] Colors { get; set; }
         public bool IsGraphBipartite { get; set; }
-        public BipartitieTest(Graph graph) : base(graph)
+        public BipartitieTest(Graph candidateGraph) : base(candidateGraph)
         {
-            Colors = new Color[graph.MaxV];
+            Colors = new Color[candidateGraph.MaxV];
         }
 
         public void RunTest()
         {
-            for (int i = 0; i < Graph.MaxV; i++)
+            for (int i = 0; i < CandidateGraph.MaxV; i++)
             {
                 Colors[i] = Color.UNCOLORED;
             }
             IsGraphBipartite = true;
 
-            for (int i = 0; i < Graph.MaxV; i++)
+            for (int i = 0; i < CandidateGraph.MaxV; i++)
             {
                 // This is common in both CC and Bipartite i.e. keep running search until all are discovered.
                 // which makes sense

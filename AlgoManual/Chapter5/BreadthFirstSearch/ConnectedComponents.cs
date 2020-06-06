@@ -4,7 +4,7 @@ namespace AlgoManual.Chapter5.BreadthFirstSearch
 {
     public class ConnectedComponents : BreadthFirstSearch
     {
-        public ConnectedComponents(Graph graph) : base(graph)
+        public ConnectedComponents(Graph candidateGraph) : base(candidateGraph)
         {
         }
 
@@ -13,7 +13,7 @@ namespace AlgoManual.Chapter5.BreadthFirstSearch
             int numberOfComponents = 0;
             InitializeSearch();
 
-            for (int i = 0; i < Graph.MaxV; i++)
+            for (int i = 0; i < CandidateGraph.MaxV; i++)
             {
                 // This is common in both CC and Bipartite i.e. keep running search until all are discovered.
                 // which makes sense

@@ -5,7 +5,7 @@ namespace AlgoManual.Chapter5.BreadthFirstSearch
 {
     public class PathFinding : BreadthFirstSearch
     {
-        public PathFinding(Graph graph) : base(graph)
+        public PathFinding(Graph candidateGraph) : base(candidateGraph)
         {
         }
 

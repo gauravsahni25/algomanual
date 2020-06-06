@@ -3,20 +3,12 @@ using AlgoManual.Chapter5.Common;
 
 namespace AlgoManual.Chapter5.BreadthFirstSearch
 {
-    public class BreadthFirstSearch : EdgeAndVertexProcessor
+    public class BreadthFirstSearch : SearchCommons
     {
-        public bool[] Processed { get; }
-        public bool[] Discovered { get; }
-        public int[] Parent { get; }
         public Stack<int> ShortestPath { get; }
-        public Graph Graph { get; }
-        public BreadthFirstSearch(Graph graph)
+        public BreadthFirstSearch(Graph candidateGraph) : base(candidateGraph)
         {
-            Processed = new bool[graph.MaxV];
-            Discovered = new bool[graph.MaxV];
-            Parent = new int[graph.MaxV];
             ShortestPath = new Stack<int>();
-            Graph = graph;
         }
 
         public void PerformSearch(int start)
@@ -32,11 +24,11 @@ namespace AlgoManual.Chapter5.BreadthFirstSearch
                 Process_Vertex_Early(vertex);
                 Processed[vertex] = true;
 
-                var edgeAdjacencyList = Graph.Edges[vertex];
+                var edgeAdjacencyList = CandidateGraph.Edges[vertex];
                 while (edgeAdjacencyList != null)
                 {
                     int connectedVertex = edgeAdjacencyList.YValue;
-                    if (Processed[connectedVertex] == false || Graph.IsDirected)
+                    if (Processed[connectedVertex] == false || CandidateGraph.IsDirected)
                     {
                         // If connectedVertex is not Processed, Process the Edge
                         ProcessEdge(vertex, connectedVertex);
@@ -58,7 +50,7 @@ namespace AlgoManual.Chapter5.BreadthFirstSearch
         protected void InitializeSearch()
         {
             // Initialize Search
-            for (int i = 0; i < this.Graph.MaxV; i++)
+            for (int i = 0; i < this.CandidateGraph.MaxV; i++)
             {
                 Parent[i] = -1;
                 Processed[i] = Discovered[i] = false;
