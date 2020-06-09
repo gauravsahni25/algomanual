@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AlgoManual.Chapter5.BreadthFirstSearch
 {
@@ -31,14 +32,6 @@ namespace AlgoManual.Chapter5.BreadthFirstSearch
         protected override void Process_Vertex_Early(int vertex)
         {
             Console.WriteLine($"Processing Vertex: {vertex}");
-        }
-
-        protected override void ProcessEdge(int vertex, int connectedVertex)
-        {
-        }
-
-        protected override void Process_Vertex_Late(int vertex)
-        {
         }
     }
 }

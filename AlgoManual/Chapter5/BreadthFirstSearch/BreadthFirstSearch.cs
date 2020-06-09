@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using AlgoManual.Chapter5.Common;
 
 namespace AlgoManual.Chapter5.BreadthFirstSearch
@@ -43,7 +44,7 @@ namespace AlgoManual.Chapter5.BreadthFirstSearch
 
                     edgeAdjacencyList = edgeAdjacencyList.Next;
                 }
-                Process_Vertex_Late(vertex);
+                Process_Vertex_Late(vertex, queue.ToList());
             }
         }
        

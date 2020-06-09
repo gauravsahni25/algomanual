@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace AlgoManual.Chapter5.Common
 {
@@ -17,7 +20,7 @@ namespace AlgoManual.Chapter5.Common
         }
         protected virtual void Process_Vertex_Early(int vertex)
         {
-            Console.WriteLine($"Processing Vertex Early: {vertex}");
+            Console.WriteLine($"Early Processing Vertex: {vertex}");
         }
 
         protected virtual void ProcessEdge(int vertex, int connectedVertex)
@@ -25,9 +28,27 @@ namespace AlgoManual.Chapter5.Common
             Console.WriteLine($"Processing Edge: {(vertex, connectedVertex)}");
         }
 
-        protected virtual void Process_Vertex_Late(int vertex)
+        protected virtual void Process_Vertex_Late(int vertex, List<int> data)
         {
-            Console.WriteLine($"Done Processing: {vertex}");
+            Console.WriteLine($"Late Processing Vertex: {vertex}");
+            
+            if (data != null)
+            {
+                StringBuilder builder = new StringBuilder("Data: ");
+                data.ForEach(a => builder.Append($" {a} "));
+                Console.WriteLine(builder.ToString());
+            }
+            Console.WriteLine();
+        }
+
+        public virtual void PrintSearchState()
+        {
+            StringBuilder builder = new StringBuilder("Parents: \n");
+            for (int i = 0; i < Parent.Length; i++)
+            {
+                builder.Append($"{i} - {Parent[i]} \n");
+            }
+            Console.WriteLine(builder.ToString());
         }
     }
 }
