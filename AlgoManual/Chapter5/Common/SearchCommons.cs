@@ -5,7 +5,17 @@ using System.Text;
 
 namespace AlgoManual.Chapter5.Common
 {
-    public class SearchCommons
+    public interface IPerformSearch
+    {
+        void PerformSearch(int start);
+    }
+
+    public interface IFindPathViaParent : IPerformSearch
+    {
+        IEnumerable<int> FindPathWith_PrintWithStrategyA(int start, int end);
+        void FindPathWith_PrintWithStrategyB(int start, int end);
+    }
+    public abstract class SearchCommons : IFindPathViaParent
     {
         public Graph CandidateGraph { get; }
         public bool[] Processed { get; }
@@ -41,6 +51,7 @@ namespace AlgoManual.Chapter5.Common
             Console.WriteLine();
         }
 
+
         public virtual void PrintSearchState()
         {
             StringBuilder builder = new StringBuilder("Parents: \n");
@@ -49,6 +60,57 @@ namespace AlgoManual.Chapter5.Common
                 builder.Append($"{i} - {Parent[i]} \n");
             }
             Console.WriteLine(builder.ToString());
+        }
+
+        public IEnumerable<int> FindPathWith_PrintWithStrategyA(int start, int end)
+        {
+
+            PerformSearch(start);
+
+            // we do this because we have to trace from End to start, so using stack
+            Stack<int> pathStack = new Stack<int>();
+            pathStack.Push(end); // push end first to stack, thus will be popped last
+            var node = Parent[end];
+            while (node != -1)
+            {
+                pathStack.Push(node);
+                node = Parent[node];
+            }
+
+            List<int> path = new List<int>();
+            while (pathStack.Count > 0)
+            {
+                path.Add(pathStack.Pop());
+            }
+
+            return path;
+        }
+
+        public void FindPathWith_PrintWithStrategyB(int start, int end)
+        {
+            // this updates the Parents array
+            PerformSearch(start);
+            if (start == end || end == -1)
+            {
+                Console.WriteLine(start);
+            }
+            else
+            {
+                FindPathWith_PrintWithStrategyB(start, Parent[end]);
+                Console.WriteLine(end);
+            }
+        }
+
+        public abstract void PerformSearch(int start);
+    }
+
+    public class Commons
+    {
+        public static string ListPrinter(string label, List<int> data)
+        {
+            StringBuilder builder = new StringBuilder("Data: ");
+            data.ForEach(a => builder.Append($" {a} "));
+            return builder.ToString();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace AlgoManual.Chapter5.BreadthFirstSearch
             ShortestPath = new Stack<int>();
         }
 
-        public void PerformSearch(int start)
+        public override void PerformSearch(int start)
         {
             InitializeSearch();
             Queue<int> queue = new Queue<int>();
