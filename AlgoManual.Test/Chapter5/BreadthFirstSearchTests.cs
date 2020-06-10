@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using AlgoManual.Chapter5.BreadthFirstSearch;
 using AlgoManual.Test.Chapter5.GraphTestData;
 using NUnit.Framework;
@@ -13,6 +15,8 @@ namespace AlgoManual.Test.Chapter5
         {
             BreadthFirstSearch search = new BreadthFirstSearch(GraphMothers.Figure59Graph);
             search.PerformSearch(1);
+
+            search.PrintSearchState();
             var sequenceEqual = search.Parent.SequenceEqual(new int[] {-1, -1, 1, 2, 5, 1, 1});
             Assert.IsTrue(sequenceEqual);
         }

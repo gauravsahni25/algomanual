@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using AlgoManual.Chapter5;
+using AlgoManual.Test.Chapter5.GraphTestData;
 using NUnit.Framework;
 
 namespace AlgoManual.Test.Chapter5
@@ -28,9 +29,12 @@ namespace AlgoManual.Test.Chapter5
         [Test]
         public void PrintGraph()
         {
-            graph.ReadGraph(points, false);
-            graph.PrintGraph();
-            Console.WriteLine("-- End of Test--");
+            GraphMothers.Figure59Graph.PrintGraph();
+        }
+        [Test]
+        public void PrintGraphBetter()
+        {
+            GraphMothers.Figure59Graph.PrintGraphBetter();
         }
 
         [Test]

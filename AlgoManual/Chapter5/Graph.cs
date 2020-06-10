@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Text;
 
 namespace AlgoManual.Chapter5
 {
@@ -95,15 +96,38 @@ namespace AlgoManual.Chapter5
         {
             for (int i = 0; i < NVertices; i++)
             {
-                Console.WriteLine(i);
+                Console.WriteLine($"Vertex:{i}"); ;
                 EdgeNode edge = this.Edges[i];
                 while (edge!=null)
                 {
                     Console.WriteLine($"{edge.YValue}");
                     edge = edge.Next;
                 }
-                Console.WriteLine("--");
+                
             }
+        }
+        public void PrintGraphBetter()
+        {
+            Console.WriteLine("-- START --");
+            for (int i = 0; i < NVertices; i++)
+            {
+                StringBuilder builder = new StringBuilder();
+                builder.Append($"Vertex:{i} ->");
+
+                EdgeNode edge = this.Edges[i];
+                while (edge != null)
+                {
+                    builder.Append($"{edge.YValue}");
+                    if (edge.Next!=null)
+                    {
+                        builder.Append(" ->");
+                    }
+                    edge = edge.Next;
+                }
+
+                Console.WriteLine(builder.ToString());
+            }
+            Console.WriteLine("-- END --");
         }
     }
 }

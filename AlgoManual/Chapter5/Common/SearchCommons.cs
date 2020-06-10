@@ -44,9 +44,7 @@ namespace AlgoManual.Chapter5.Common
             
             if (data != null)
             {
-                StringBuilder builder = new StringBuilder("Data: ");
-                data.ForEach(a => builder.Append($" {a} "));
-                Console.WriteLine(builder.ToString());
+                Console.WriteLine(Commons.ListPrinter("Data: ", data));
             }
             Console.WriteLine();
         }
@@ -64,15 +62,24 @@ namespace AlgoManual.Chapter5.Common
 
         public IEnumerable<int> FindPathWith_PrintWithStrategyA(int start, int end)
         {
-
             PerformSearch(start);
 
+            return TraceFromStartToEnd(start, end);
+        }
+
+        protected IEnumerable<int> TraceFromStartToEnd(int start, int end)
+        {
             // we do this because we have to trace from End to start, so using stack
             Stack<int> pathStack = new Stack<int>();
             pathStack.Push(end); // push end first to stack, thus will be popped last
             var node = Parent[end];
             while (node != -1)
             {
+                if (node == start)
+                {
+                    pathStack.Push(node);
+                    break;
+                }
                 pathStack.Push(node);
                 node = Parent[node];
             }
