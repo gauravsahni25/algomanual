@@ -16,4 +16,8 @@
     <ProjectReference Include="..\AlgoManual\AlgoManual.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Chapter6\" />
+  </ItemGroup>
+
 </Project>
