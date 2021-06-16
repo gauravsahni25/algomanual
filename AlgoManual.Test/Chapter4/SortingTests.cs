@@ -24,7 +24,15 @@ namespace AlgoManual.Test.Chapter4
         {
             SelectionSort sort = new SelectionSort();
             var result = sort.Sort(new int[] { 6, 5, 4, 3, 2, 1 });
-            Console.WriteLine(Commons.ListPrinter("Insertion Sort", result.ToList()));
+            Console.WriteLine(Commons.ListPrinter("Selection Sort", result.ToList()));
+        }
+
+        [Test]
+        public void HeapSortTest()
+        {
+            HeapSort sort = new HeapSort();
+            var result = sort.Sort(new int[] { 6, 5, 4, 3, 2, 1 });
+            Console.WriteLine(Commons.ListPrinter("Heap Sort", result.ToList()));
         }
     }
 }
