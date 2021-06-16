@@ -9,12 +9,14 @@ namespace AlgoManual.Chapter4.Heaps
         public int[] Queue { set; get; }
         public int HeapSize { get; set; }
 
+        protected Heap()
+        {
+        }
         public Heap(int lengthOfSource)
         {
             HeapSize = 0;
             Queue = new int[lengthOfSource + 1];
         }
-
         public Heap(int[] source)
         {
             HeapSize = 0;
@@ -41,7 +43,7 @@ namespace AlgoManual.Chapter4.Heaps
             return min;
         }
 
-        private void BubbleDown(int index)
+        protected void BubbleDown(int index)
         {
             int childIndex = HeapYoungChild(index);
             int minIndex = index;
@@ -90,7 +92,7 @@ namespace AlgoManual.Chapter4.Heaps
         }
 
         /// <param name="index">This is the index to be bubbled | Used in Insertion</param>
-        private void BubbleUp(int index)
+        protected void BubbleUp(int index)
         {
             if (HeapParent(index) == -1)
             {
@@ -104,7 +106,7 @@ namespace AlgoManual.Chapter4.Heaps
             }
         }
 
-        private void Swap(in int index, in int heapParentOrChild)
+        protected void Swap(in int index, in int heapParentOrChild)
         {
             int temp = Queue[index];
             Queue[index] = Queue[heapParentOrChild];
@@ -122,7 +124,7 @@ namespace AlgoManual.Chapter4.Heaps
             }
         }
 
-        private bool TestHeapProperty(in int i)
+        protected bool TestHeapProperty(in int i)
         {
             int child = HeapYoungChild(i);
             int minIndex = i;
