@@ -115,7 +115,7 @@ namespace AlgoManual.Chapter5.Common
     {
         public static string ListPrinter(string label, List<int> data)
         {
-            StringBuilder builder = new StringBuilder("Data: ");
+            StringBuilder builder = new StringBuilder($"{label}: ");
             data.ForEach(a => builder.Append($" {a} "));
             return builder.ToString();
         }
