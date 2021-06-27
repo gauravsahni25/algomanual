@@ -52,5 +52,14 @@ namespace AlgoManual.Test.Chapter4
             sort.Sort(0, target.Length - 1);
             Console.WriteLine(Commons.ListPrinter("Quick Sort", sort.Target.ToList()));
         }
+
+        [Test]
+        public void QuickSort2Test()
+        {
+            var target = new int[] { 6, 5, 4, 3, 2, 1 };
+            QuickSortEasy sort = new QuickSortEasy(target);
+            sort.Sort(0, target.Length - 1);
+            Console.WriteLine(Commons.ListPrinter("Quick Sort", sort.Target.ToList()));
+        }
     }
 }
